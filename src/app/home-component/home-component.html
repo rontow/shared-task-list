@@ -10,12 +10,9 @@
   <div class="deadline-container" *ngIf="hasDeadLine">
   <label for="dueDate">דדליין:</label>
   <input
-    type="date"
+    type="datetime-local"
     id="dueDate"
-    name="trip-start"
-    value="2018-07-22"
-    min="2018-01-01"
-    max="9999-12-31" 
+    value="9999-12-31T00:00 "
     [(ngModel)]="taskDueDate"/>
   </div>
   <button (click)="addTask(taskName, hasDeadLine, taskDueDate)">+</button>
