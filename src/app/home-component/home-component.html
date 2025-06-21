@@ -1,4 +1,22 @@
 <p>home works!</p>
 <div class="task-container">
-  <app-task *ngFor="let task of tasks" [name]="task"></app-task>
+  <app-task *ngFor="let task of tasks" [name]="task.name"></app-task>
+</div>
+<div class="new-task-container">
+  <label for="taskNameInput">שם המטלה:</label>
+  <input id="taskNameInput" type="text" [(ngModel)]="taskName">  
+  <label for="dueDate">יש דדליין?</label>
+  <input id = "hasDueDate" type="checkbox" [(ngModel)]="hasDeadLine"/>
+  <div class="deadline-container" *ngIf="hasDeadLine">
+  <label for="dueDate">דדליין:</label>
+  <input
+    type="date"
+    id="dueDate"
+    name="trip-start"
+    value="2018-07-22"
+    min="2018-01-01"
+    max="9999-12-31" 
+    [(ngModel)]="taskDueDate"/>
+  </div>
+  <button (click)="addTask(taskName, hasDeadLine, taskDueDate)">+</button>
 </div>
